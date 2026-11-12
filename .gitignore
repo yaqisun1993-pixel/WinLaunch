@@ -1,0 +1,16 @@
+# 构建 / 发布产物（不入库）
+dist/
+release/
+WinLaunch-release/
+obj/
+bin/
+*.user
+*.suo
+.vs/
+.idea/
+
+# 临时文件
+*.tmp
+*.log
+Thumbs.db
+desktop.ini
