@@ -1,4 +1,4 @@
-; WinLaunch 安装包（Inno Setup 6）
+﻿; WinLaunch 安装包（Inno Setup 6）
 ; 由 build.ps1 -Release 调用，传入：
 ;   /DMyAppVersion=1.0.0
 ;   /DMyAppExe=<发布目录>\WinLaunch.exe
@@ -26,8 +26,13 @@ AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppVerName={#MyAppName} {#MyAppVersion}
 AppPublisher={#MyAppPublisher}
-AppPublisherURL=https://github.com/
-AppSupportURL=https://github.com/
+AppPublisherURL=https://github.com/yaqisun1993-pixel/WinLaunch
+AppSupportURL=https://github.com/yaqisun1993-pixel/WinLaunch/issues
+AppUpdatesURL=https://github.com/yaqisun1993-pixel/WinLaunch/releases
+VersionInfoVersion={#MyAppVersion}.0
+VersionInfoCompany={#MyAppPublisher}
+VersionInfoProductName={#MyAppName}
+VersionInfoDescription={#MyAppName} 安装程序
 DefaultDirName={localappdata}\Programs\WinLaunch
 DefaultGroupName={#MyAppName}
 DisableProgramGroupPage=yes
@@ -41,7 +46,7 @@ WizardStyle=modern
 DisableWelcomePage=no
 CloseApplications=no
 RestartApplications=no
-ArchitecturesAllowed=x64compatible
+ArchitecturesAllowed=x86compatible
 ArchitecturesInstallIn64BitMode=x64compatible
 
 [Languages]
