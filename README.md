@@ -90,19 +90,21 @@ powershell -ExecutionPolicy Bypass -File build.ps1 -Release -Version 1.0.0
 
 ## 代码签名策略 / Code signing policy
 
-WinLaunch 采用 MIT 许可开源发布。发布包使用 [SignPath.io](https://about.signpath.io) 提供的免费代码签名服务，
-证书由 [SignPath Foundation](https://signpath.org) 签发：
+WinLaunch 采用 MIT 许可开源发布。**当前发布包未做代码签名**：`WinLaunch.exe` 与安装包的 Authenticode 状态为
+`NotSigned`，首次运行可能出现"Windows 已保护你的电脑 / 未知发布者"提示，点「更多信息」→「仍要运行」即可。
 
-> Free code signing provided by [SignPath.io](https://about.signpath.io), certificate by [SignPath Foundation](https://signpath.org).
-
-- **签名范围**：`WinLaunch.exe`、`WinLaunch-<版本>-setup.exe`，全部由本仓库源码在 GitHub Actions 中自动构建后签名
+- **校验方式**：每个 Release 都附带 `SHA256SUMS.txt`，下载后可用
+  `Get-FileHash <文件> -Algorithm SHA256` 或在资源管理器属性里核对哈希
+- **构建来源**：`WinLaunch.exe`、`WinLaunch-<版本>-setup.exe` 全部由本仓库源码在 GitHub Actions 中自动构建
+- **签名计划**：曾于 2026-11-12 申请 [SignPath Foundation](https://signpath.org) 的免费代码签名，
+  因项目公众可见度尚不足未获批准；待项目积累更多外部使用与讨论后重新申请，启用后会在此处与 Release 说明中标注
 - **角色与成员**（当前为单人维护，均在 [@yaqisun1993-pixel](https://github.com/yaqisun1993-pixel) 名下）：
   - Authors（提交者）：[@yaqisun1993-pixel](https://github.com/yaqisun1993-pixel)
   - Reviewers（审核者）：[@yaqisun1993-pixel](https://github.com/yaqisun1993-pixel)
   - Approvers（签名批准者）：[@yaqisun1993-pixel](https://github.com/yaqisun1993-pixel)
 - **隐私政策**：本程序不会向其他联网系统发送任何信息，除非用户或安装者主动要求。
   程序只读写本机文件（`%APPDATA%\WinLaunch`、`%LOCALAPPDATA%\WinLaunch`）和注册表的开机自启项，**没有任何网络请求**。
-- **文档意愿**：代码签名证书由 SignPath Foundation 以自身名义签发；若本项目的签名被滥用，SignPath Foundation 有权撤销。
+- **文档意愿**：若将来由 SignPath Foundation 签发证书，证书以其自身名义签发；若本项目的签名被滥用，SignPath Foundation 有权撤销。
 
 ## 许可
 
